@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kavana R K | Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            background: #0f172a;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            border-bottom: 1px solid #293548;
+        }
+
+        nav h1 {
+            color: #38bdf8;
+            font-size: 25px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 22px;
+        }
+
+        nav ul a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav ul a:hover {
+            color: #38bdf8;
+        }
+
+        /* Home */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 8% 70px;
+            background: linear-gradient(135deg, #0f172a, #172554);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .tag {
+            color: #38bdf8;
+            letter-spacing: 2px;
+            font-size: 14px;
+        }
+
+        .hero h2 {
+            font-size: clamp(34px, 6vw, 58px);
+            margin: 18px 0;
+        }
+
+        .hero h2 span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            color: #cbd5e1;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 25px 8px 0;
+            padding: 12px 25px;
+            background: #38bdf8;
+            color: #0f172a;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            transform: translateY(-4px);
+        }
+
+        .outline {
+            color: white;
+            background: transparent;
+            border: 1px solid #38bdf8;
+        }
+
+        /* Common sections */
+        section:not(.hero) {
+            padding: 90px 10%;
+        }
+
+        .section-title {
+            color: #38bdf8;
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 45px;
+        }
+
+        /* About */
+        .about {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .profile-box {
+            min-height: 280px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1e293b;
+            border: 2px solid #38bdf8;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .profile-box img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+        }
+
+        .profile-placeholder {
+            padding: 25px;
+            color: #94a3b8;
+            text-align: center;
+        }
+
+        .about-text p {
+            color: #cbd5e1;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .about-text strong {
+            color: #38bdf8;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            padding: 28px 15px;
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            background: #38bdf8;
+            color: #0f172a;
+            transform: translateY(-8px);
+        }
+
+        .skill-card h3 {
+            font-size: 17px;
+        }
+
+        /* Projects */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            padding: 25px;
+            border-radius: 18px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+            border-color: #38bdf8;
+        }
+
+        .project-card h3 {
+            color: #38bdf8;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: #cbd5e1;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .tech {
+            display: inline-block;
+            margin-top: 15px;
+            color: #7dd3fc;
+            font-size: 13px;
+        }
+
+        /* Education */
+        .education-card {
+            max-width: 700px;
+            margin: auto;
+            padding: 30px;
+            background: #1e293b;
+            border-left: 4px solid #38bdf8;
+            border-radius: 12px;
+        }
+
+        .education-card h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .education-card p {
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+
+        /* Contact */
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: #cbd5e1;
+            margin: 15px 0;
+        }
+
+        .social-icons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .social-icons a {
+            padding: 10px 20px;
+            border: 1px solid #334155;
+            background: #1e293b;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid #293548;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* Scroll animation */
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile design */
+        @media (max-width: 700px) {
+            nav {
+                flex-direction: column;
+                gap: 12px;
+                padding: 15px 4%;
+            }
+
+            nav h1 {
+                font-size: 22px;
+            }
+
+            nav ul {
+                gap: 13px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding-top: 145px;
+            }
+
+            section:not(.hero) {
+                padding: 65px 7%;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-box {
+                max-width: 350px;
+                width: 100%;
+                margin: auto;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .hidden {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <h1>Kavana R K</h1>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home -->
+    <section class="hero" id="home">
+        <div class="hero-content hidden">
+            <p class="tag">WELCOME TO MY PORTFOLIO</p>
+
+            <h2>Hello, I'm <span>Kavana R K</span></h2>
+
+            <p>
+                BCA 3rd Year Student |
+                Aspiring Full Stack web Developer
+            </p>
+
+            <p>
+                I enjoy learning programming, developing websites,
+                and creating useful software applications.
+            </p>
+
+            <a href="#projects" class="btn">View My Projects</a>
+            <a href="#contact" class="btn outline">Contact Me</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <h2 class="section-title hidden">About Me</h2>
+
+        <div class="about">
+            <div class="profile-box hidden">
+                <!-- Add your photo as profile.jpg in this folder -->
+                <img
+                    src="Kavana.jpeg"
+                    alt="Kavana R K profile photo"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                >
+                <div class="profile-placeholder" style="display:none">
+                    Add your photo as Kavana.jpg
+                </div>
+            </div>
+
+            <div class="about-text hidden">
+                <p>
+                    Hello! I am Kavana R K, a third-year
+                    Bachelor of Computer Applications (BCA) student.
+                    I am interested in programming, web development,
+                    and database management.
+                </p>
+
+                <p>
+                    I enjoy learning new technologies and applying
+                    my knowledge to practical projects. I am working
+                    to improve my technical skills and communication.
+                </p>
+
+                <p>
+                    <strong>Career Goal:</strong>
+                    To become a skilled Full Stack web Developer.
+                </p>
+
+                <p>
+                    <strong>Strength:</strong>
+                    Hard work and willingness to learn.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+        <h2 class="section-title hidden">My Education</h2>
+
+        <div class="education-card hidden">
+            <h3>Bachelor of Computer Applications (BCA)</h3>
+            <p><strong>Year:</strong> 3rd Year</p>
+            <p><strong>College:</strong> Kumadhvathi First Grade College</p>
+            <p><strong>University:</strong> Kuvempu University</p>
+            <p><strong>Status:</strong> Currently pursuing</p>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <h2 class="section-title hidden">My Skills</h2>
+
+        <div class="skills-container">
+            <div class="skill-card hidden"><h3>HTML</h3></div>
+            <div class="skill-card hidden"><h3>CSS</h3></div>
+            <div class="skill-card hidden"><h3>JavaScript</h3></div>
+            <div class="skill-card hidden"><h3>Java</h3></div>
+            <div class="skill-card hidden"><h3>Python</h3></div>
+            <div class="skill-card hidden"><h3>PHP</h3></div>
+            <div class="skill-card hidden"><h3>MySQL</h3></div>
+            <div class="skill-card hidden"><h3>Git & GitHub</h3></div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <h2 class="section-title hidden">My Projects</h2>
+
+        <div class="projects-container">
+
+            <div class="project-card hidden">
+                <h3>Student Management Internship Portal</h3>
+                <p>
+                    A BCA project designed to organize student
+                    information and internship-related activities.
+                    The portal aims to make information management
+                    easier and more organized.
+                </p>
+                <span class="tech">
+                    Python | HTML | CSS | Database
+                </span>
+            </div>
+
+            <div class="project-card hidden">
+                <h3>Personal Portfolio Website</h3>
+                <p>
+                    A personal website that presents my education,
+                    technical skills, projects, career goal,
+                    and contact information.
+                </p>
+                <span class="tech">HTML | CSS | JavaScript</span>
+            </div>
+
+            <div class="project-card hidden">
+                <h3>College Practice Projects</h3>
+                <p>
+                    Programming exercises and academic projects
+                    completed while learning web development,
+                    PHP, database management, and programming.
+                </p>
+                <span class="tech">Add the technologies you used</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2 class="section-title hidden">Contact Me</h2>
+
+        <div class="contact hidden">
+            <p>
+                I am interested in learning, projects,
+                and career opportunities.
+            </p>
+
+            <!-- Replace with your actual email -->
+            <p>
+                Email:
+                <a href="mailto:kkavanark@gmail.com"
+                   style="color:#38bdf8">
+                    kkavanark@gmail.com
+                </a>
+            </p>
+
+            <p>Location: Karnataka, India</p>
+
+            <div class="social-icons">
+                <!-- Replace # with your profile links -->
+                <a href="https://github.com/" target="_blank"
+                   rel="noopener noreferrer">GitHub</a>
+
+                <a href="https://www.linkedin.com/in/kavana-r-k-kavana-r-k-292216376?utm_source=share_via&utm_content=profile&utm_medium=member_android"></a>
+            </div>
+
+            <!-- Add Kavana-Resume.pdf to the same folder -->
+            <a href="Kavana-Resume.pdf" class="btn" download>
+                Download My Resume
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Kavana R K | All Rights Reserved</p>
+    </footer>
+
+    <!-- Animation -->
+    <script>
+        const hiddenElements =
+            document.querySelectorAll('.hidden');
+
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('show');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.1 }
+            );
+
+            hiddenElements.forEach((element) => {
+                observer.observe(element);
+            });
+        } else {
+            hiddenElements.forEach((element) => {
+                element.classList.add('show');
+            });
+        }
+    </script>
+
+</body>
+</html>
